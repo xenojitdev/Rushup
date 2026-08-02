@@ -521,11 +521,19 @@ function initContactForm() {
         }
         showToast('Your support request has been submitted successfully. Our support team will contact you through your selected contact method.', 'success');
       } else {
-        throw new Error(result.error || 'Failed to submit support request.');
+        let rawError = result.error || 'Failed to submit support request.';
+        if (rawError.toLowerCase().includes('email')) {
+          rawError = 'Failed to submit support request. Please try again.';
+        }
+        throw new Error(rawError);
       }
     } catch (err) {
       console.error('Support Form Submission Error:', err);
-      showToast(`⚠️ ${err.message || 'Error submitting request. Please try again.'}`, 'error');
+      let errMsg = err.message || 'Error submitting request. Please try again.';
+      if (errMsg.toLowerCase().includes('email')) {
+        errMsg = 'Error submitting request. Please try again.';
+      }
+      showToast(`⚠️ ${errMsg}`, 'error');
     } finally {
       setTimeout(() => {
         submitBtn.disabled = false;

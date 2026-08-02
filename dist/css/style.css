@@ -71,28 +71,49 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Accessibility & Keyboard Focus Styles --- */
+/* --- Accessibility & Keyboard-Only Focus Styles --- */
 .skip-link {
   position: absolute;
-  top: -100px;
-  left: 1rem;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  z-index: 10001;
   background: var(--gold);
   color: #000;
-  padding: 0.6rem 1.2rem;
   font-weight: 700;
   border-radius: var(--radius-sm);
-  z-index: 10001;
-  transition: top 0.2s ease;
+  transition: none;
   text-decoration: none;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
+  position: fixed;
   top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.6rem 1.2rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  box-shadow: 0 0 20px var(--gold-glow);
+  outline: 3px solid #FFF;
 }
 
 :focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
+}
+
+/* Mobile Menu Overlay Base (Hidden by default on all viewports) */
+.mobile-menu-overlay {
+  display: none;
 }
 
 /* Background Particle Canvas & Glow Orbs */

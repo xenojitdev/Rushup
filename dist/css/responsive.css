@@ -182,12 +182,14 @@
     align-items: center;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: all var(--transition-normal);
   }
 
   .mobile-menu-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .mobile-menu-close {
