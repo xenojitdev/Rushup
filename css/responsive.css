@@ -1,0 +1,299 @@
+/* ==========================================================================
+   RUSHUP ESPORTS - RESPONSIVE STYLESHEET
+   Mobile-First Overrides & Smartphone Viewport Optimization (360px - 430px)
+   ========================================================================== */
+
+/* --- Desktop / Large Displays (Above 1024px) --- */
+@media (min-width: 1025px) {
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
+/* --- Laptops & Small Desktops (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust-bar {
+    justify-content: center;
+  }
+
+  .hero-icon-container {
+    max-width: 260px;
+  }
+
+  .float-badge-1 {
+    left: -5%;
+  }
+
+  .float-badge-2 {
+    right: -5%;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Mobile Devices ONLY (max-width: 768px) --- */
+@media (max-width: 768px) {
+  section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    padding-top: 7rem;
+    padding-bottom: 2.5rem;
+    min-height: auto;
+  }
+
+  /* Mobile Hero Reordering: Headline -> Subheading -> App Icon -> Buttons */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .hero-badge {
+    order: 1;
+  }
+
+  .hero-title {
+    order: 2;
+    font-size: 2.15rem;
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-subtitle {
+    order: 3;
+    font-size: 0.98rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-visual {
+    order: 4;
+    width: 100%;
+    margin: 1.25rem auto 1.75rem auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-actions {
+    order: 5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 1.75rem auto;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    height: 46px;
+    font-size: 0.95rem;
+    padding: 0 1.25rem;
+  }
+
+  .hero-trust-bar {
+    order: 6;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.25rem;
+    padding-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-logo-img {
+    height: 44px;
+  }
+
+  /* Mobile Navigation Drawer */
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(9, 9, 11, 0.96);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 2.2rem;
+    cursor: pointer;
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .slider-outer-wrapper {
+    max-width: 290px;
+  }
+
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .cta-banner {
+    padding: 2.75rem 1.25rem;
+  }
+
+  .cta-title {
+    font-size: 1.85rem;
+  }
+
+  .cta-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* --- Mobile Phones (360px – 430px Viewports) --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.15rem;
+  }
+
+  .hero-title {
+    font-size: 2.05rem;
+  }
+
+  .floating-badge {
+    display: none;
+  }
+
+  .hero-icon-container {
+    max-width: 210px;
+  }
+
+  .slider-outer-wrapper {
+    max-width: 270px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .glass-card {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cta-banner .btn {
+    width: 100%;
+    height: 46px;
+    font-size: 0.95rem;
+  }
+}

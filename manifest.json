@@ -1,0 +1,19 @@
+{
+  "short_name": "RushUp",
+  "name": "RushUp Esports Tournament Platform",
+  "description": "India's premier Free Fire tournament platform for daily matches and instant cash payouts.",
+  "icons": [
+    {
+      "src": "./icons/rushup_icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#09090B",
+  "theme_color": "#6C2BFF",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["games", "sports", "entertainment"]
+}

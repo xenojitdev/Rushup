@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Support | RushUp Esports</title>
+  <meta name="description" content="Contact RushUp Esports support team. Submit a support request for match rooms, withdrawals, or anti-cheat reports.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://xenojitdev.github.io/Rushup/contact.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RushUp Esports">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://xenojitdev.github.io/Rushup/contact.html">
+  <meta property="og:title" content="Contact Support | RushUp Esports">
+  <meta property="og:description" content="Get fast help with Free Fire tournaments, UPI withdrawals, and account support from RushUp Esports.">
+  <meta property="og:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://xenojitdev.github.io/Rushup/contact.html">
+  <meta name="twitter:title" content="Contact Support | RushUp Esports">
+  <meta name="twitter:description" content="Get fast help with Free Fire tournaments, UPI withdrawals, and account support from RushUp Esports.">
+  <meta name="twitter:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./icons/rushup_icon.png">
+  <link rel="apple-touch-icon" href="./icons/rushup_icon.png">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Schema.org BreadcrumbList JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://xenojitdev.github.io/Rushup/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Support",
+        "item": "https://xenojitdev.github.io/Rushup/contact.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="scroll-progress"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Navbar -->
+  <header class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="./index.html" class="logo" aria-label="RushUp Esports Home">
+        <img src="./icons/rushup_logo.png" alt="RushUp Esports Logo" class="nav-logo-img" width="180" height="48">
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Contact Main Section -->
+    <section style="padding-top: 8.5rem;">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Support Desk</div>
+          <h1 class="section-title">Submit a <span class="gradient-text-gold">Support Request</span></h1>
+          <p class="section-subtitle">Fill out the form below and our dedicated support team will reach out to you via your preferred contact channel.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Support Form Card -->
+          <div class="glass-card">
+            <h2 style="font-size: 1.4rem; margin-bottom: 1.25rem; color: var(--text);">Contact Support</h2>
+            
+            <form id="contact-form">
+              <!-- 1. Full Name -->
+              <div class="form-group">
+                <label class="form-label" for="c-name">Full Name <span style="color: var(--gold);">*</span></label>
+                <input type="text" id="c-name" class="form-input" placeholder="e.g. Rahul Sharma" required>
+              </div>
+
+              <!-- 2. Mobile Number -->
+              <div class="form-group">
+                <label class="form-label" for="c-mobile">Mobile Number <span style="color: var(--gold);">*</span></label>
+                <input type="tel" id="c-mobile" class="form-input" placeholder="e.g. 9876543210" maxlength="10" inputmode="numeric" required>
+              </div>
+
+              <!-- 3. Contact Preference -->
+              <div class="form-group">
+                <label class="form-label" for="c-preference">Contact Preference <span style="color: var(--gold);">*</span></label>
+                <select id="c-preference" class="form-input" style="background: rgba(9, 9, 11, 0.9);" required>
+                  <option value="Telegram">Telegram</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Field: Telegram Username -->
+              <div id="c-telegram-wrapper" class="form-group form-group-dynamic active">
+                <label class="form-label" for="c-telegram-username">Telegram Username <span style="color: var(--gold);">*</span></label>
+                <input type="text" id="c-telegram-username" class="form-input" placeholder="@example_username" required>
+              </div>
+
+              <!-- 4. Subject -->
+              <div class="form-group">
+                <label class="form-label" for="c-subject">Subject <span style="color: var(--gold);">*</span></label>
+                <select id="c-subject" class="form-input" style="background: rgba(9, 9, 11, 0.9);" required>
+                  <option value="Match Room Query">Match Room Query</option>
+                  <option value="Withdrawal Related">Withdrawal Related</option>
+                  <option value="Anti Cheat / Hacker Report">Anti Cheat / Hacker Report</option>
+                  <option value="Sponsorship & Partnership">Sponsorship & Partnership</option>
+                  <option value="Other Issue">Other Issue</option>
+                </select>
+              </div>
+
+              <!-- 5. Message -->
+              <div class="form-group">
+                <label class="form-label" for="c-message">Message <span style="color: var(--gold);">*</span></label>
+                <textarea id="c-message" class="form-textarea" rows="4" placeholder="Please explain your issue in detail so our support team can assist you quickly." required></textarea>
+              </div>
+
+              <!-- 6. Screenshot (Optional) -->
+              <div class="form-group">
+                <label class="form-label" for="c-screenshot">Screenshot (Optional)</label>
+                <input type="file" id="c-screenshot" class="form-input" accept="image/jpeg,image/png,image/webp" style="padding: 0.6rem 1rem;">
+                <span id="file-info-text" style="font-size: 0.8rem; color: var(--secondary-text); display: block; margin-top: 0.35rem;">
+                  Accepted formats: JPG, JPEG, PNG, WEBP (Max 5 MB)
+                </span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                Submit Support Request
+              </button>
+            </form>
+          </div>
+
+          <!-- Quick Help Info Cards -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div class="glass-card" style="display: flex; align-items: center; gap: 1.25rem;">
+              <div class="feature-icon-box" style="width: 54px; height: 54px; font-size: 1.4rem;">
+                💬
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: var(--text);">Telegram Live Desk</h3>
+                <p style="font-size: 0.88rem;">Direct fast assistance from referees on Telegram.</p>
+                <a href="https://t.me/RushUpEsports" target="_blank" rel="noopener" style="color: var(--gold-light); font-weight: 600; font-size: 0.88rem; display: inline-block; margin-top: 0.25rem;">Join Telegram Channel →</a>
+              </div>
+            </div>
+
+            <div class="glass-card" style="display: flex; align-items: center; gap: 1.25rem;">
+              <div class="feature-icon-box" style="width: 54px; height: 54px; font-size: 1.4rem;">
+                ⚡
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: var(--text);">Fast Support Response</h3>
+                <p style="font-size: 0.88rem; color: var(--success); font-weight: 600;">⚡ Active Support Team during tournament match hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 4rem;">
+    <div class="container" style="text-align: center;">
+      <p>© 2026 RushUp Esports. All rights reserved. | <a href="./index.html" style="color: var(--gold-light);">Home</a> | <a href="./privacy.html" style="color: var(--gold-light);">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
