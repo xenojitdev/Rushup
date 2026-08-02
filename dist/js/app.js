@@ -501,6 +501,7 @@ function initContactForm() {
         body: JSON.stringify({
           name,
           mobile,
+          email: `${mobile}@rushupesports.com`,
           contactPreference,
           telegramUsername,
           subject,
