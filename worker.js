@@ -29,13 +29,16 @@ export default {
     }
 
     try {
-      // 3. Parse JSON Body
+      // 3. Parse & Log JSON Body
       const body = await request.json();
+      console.log('Received request body:', JSON.stringify(body, null, 2));
+
       const { name, mobile, contactPreference, telegramUsername, subject, message, screenshotBase64 } = body || {};
 
       // 4. Input Validation
       const validationError = validateInput({ name, mobile, contactPreference, telegramUsername, subject, message });
       if (validationError) {
+        console.error('Validation failure:', validationError);
         return new Response(
           JSON.stringify({ success: false, error: validationError }),
           {
@@ -180,30 +183,34 @@ export default {
 /* --- Input Validation Utility --- */
 function validateInput({ name, mobile, contactPreference, telegramUsername, subject, message }) {
   if (!name || typeof name !== 'string' || name.trim().length < 2) {
-    return 'Please provide a valid Full Name (at least 2 characters).';
+    return 'Missing or invalid name field (must be at least 2 characters)';
+  }
+
+  if (!mobile || typeof mobile !== 'string' || mobile.trim().length === 0) {
+    return 'Missing mobile field';
   }
 
   const mobileRegex = /^\d{10}$/;
-  if (!mobile || typeof mobile !== 'string' || !mobileRegex.test(mobile.trim())) {
-    return 'Mobile Number must be exactly 10 digits (numbers only).';
+  if (!mobileRegex.test(mobile.trim())) {
+    return 'Invalid mobile field (must be exactly 10 digits)';
   }
 
   if (!contactPreference || typeof contactPreference !== 'string' || !['Telegram', 'WhatsApp'].includes(contactPreference.trim())) {
-    return 'Please select a valid Contact Preference (Telegram or WhatsApp).';
+    return 'Missing or invalid contactPreference field (must be Telegram or WhatsApp)';
   }
 
   if (contactPreference.trim() === 'Telegram') {
     if (!telegramUsername || typeof telegramUsername !== 'string' || !telegramUsername.trim().startsWith('@') || telegramUsername.trim().length < 2) {
-      return 'Telegram Username must begin with @.';
+      return 'Missing or invalid telegramUsername field (required for Telegram preference, must start with @)';
     }
   }
 
   if (!subject || typeof subject !== 'string' || subject.trim().length === 0) {
-    return 'Please select a valid subject for your issue.';
+    return 'Missing subject field';
   }
 
   if (!message || typeof message !== 'string' || message.trim().length < 5) {
-    return 'Please explain your issue in detail (at least 5 characters).';
+    return 'Missing or invalid message field (must be at least 5 characters)';
   }
 
   return null;
