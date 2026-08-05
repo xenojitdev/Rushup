@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournament Registration | RushUp Esports</title>
+  <meta name="description" content="Register your squad for RushUp Battle Series (RBS) 2026. Complete the official registration form to confirm your team slot.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://xenojitdev.github.io/Rushup/register.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RushUp Esports">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://xenojitdev.github.io/Rushup/register.html">
+  <meta property="og:title" content="Tournament Registration | RushUp Esports">
+  <meta property="og:description" content="Register your team for RushUp Battle Series (RBS) 2026. Entry Fee ₹99 | Prize Pool ₹4900.">
+  <meta property="og:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://xenojitdev.github.io/Rushup/register.html">
+  <meta name="twitter:title" content="Tournament Registration | RushUp Esports">
+  <meta name="twitter:description" content="Register your team for RushUp Battle Series (RBS) 2026. Entry Fee ₹99 | Prize Pool ₹4900.">
+  <meta name="twitter:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/png" href="./icons/rushup_icon.png">
+  <link rel="apple-touch-icon" href="./icons/rushup_icon.png">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="scroll-progress"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <button class="mobile-menu-close" aria-label="Close Mobile Menu">&times;</button>
+    <ul class="mobile-nav-links">
+      <li><a href="./index.html#home" class="mobile-nav-link">Home</a></li>
+      <li><a href="./leagues.html" class="mobile-nav-link active">Leagues</a></li>
+      <li><a href="./index.html#features" class="mobile-nav-link">Features</a></li>
+      <li><a href="./index.html#screenshots" class="mobile-nav-link">App Preview</a></li>
+      <li><a href="./index.html#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="./index.html#faq" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="./index.html" class="logo" aria-label="RushUp Esports Home">
+        <img src="./icons/rushup_logo.png" alt="RushUp Esports Logo" class="nav-logo-img" width="180" height="48">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="./index.html#home" class="nav-link">Home</a></li>
+          <li><a href="./leagues.html" class="nav-link active">Leagues</a></li>
+          <li><a href="./index.html#features" class="nav-link">Features</a></li>
+          <li><a href="./index.html#screenshots" class="nav-link">App Preview</a></li>
+          <li><a href="./index.html#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="./index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section style="padding-top: 8.5rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 800px;">
+
+        <!-- Header Title -->
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <div class="badge">Official Tournament Entry</div>
+          <h1 class="section-title">Squad <span class="gradient-text-gold">Registration</span></h1>
+          <p class="section-subtitle">RushUp Battle Series (RBS) 2026</p>
+        </div>
+
+        <!-- Stepper Indicator Header -->
+        <div class="stepper-wrapper" id="stepper-bar">
+          <div class="step-item active" data-step="1">
+            <div class="step-circle">1</div>
+            <div class="step-title">Team Roster</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="2">
+            <div class="step-circle">2</div>
+            <div class="step-title">Contact Info</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="3">
+            <div class="step-circle">3</div>
+            <div class="step-title">Rules & Declaration</div>
+          </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="glass-card" style="margin-top: 2rem; position: relative;">
+
+          <form id="tournament-registration-form">
+            <!-- STEP 1: Team & Roster Info -->
+            <div class="form-step-panel active" id="step-1">
+              <h2 style="font-size: 1.3rem; margin-bottom: 1.25rem; color: var(--gold-light); display: flex; align-items: center; gap: 0.5rem;">
+                🛡️ Team & Player Information
+              </h2>
+
+              <!-- Team Name & Short Name -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="reg-team-name">Team Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-team-name" class="form-input" placeholder="e.g. Soul Gaming" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-short-name">Short Team Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-short-name" class="form-input" placeholder="e.g. SOUL" maxlength="6" required>
+                </div>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 1.25rem 0;">
+
+              <!-- Leader Details -->
+              <h3 style="font-size: 1.05rem; color: var(--text); margin-bottom: 0.75rem;">👑 Team Leader Details</h3>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="reg-leader-name">Leader Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-leader-name" class="form-input" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-leader-uid">Leader UID <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-leader-uid" class="form-input" placeholder="In-game UID" required>
+                </div>
+              </div>
+
+              <!-- Player 2 Details -->
+              <h3 style="font-size: 1.05rem; color: var(--text); margin-bottom: 0.75rem; margin-top: 0.5rem;">🎮 Player 2 Details</h3>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="reg-p2-name">Player 2 Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p2-name" class="form-input" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-p2-uid">Player 2 UID <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p2-uid" class="form-input" placeholder="In-game UID" required>
+                </div>
+              </div>
+
+              <!-- Player 3 Details -->
+              <h3 style="font-size: 1.05rem; color: var(--text); margin-bottom: 0.75rem; margin-top: 0.5rem;">🎮 Player 3 Details</h3>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="reg-p3-name">Player 3 Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p3-name" class="form-input" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-p3-uid">Player 3 UID <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p3-uid" class="form-input" placeholder="In-game UID" required>
+                </div>
+              </div>
+
+              <!-- Player 4 Details -->
+              <h3 style="font-size: 1.05rem; color: var(--text); margin-bottom: 0.75rem; margin-top: 0.5rem;">🎮 Player 4 Details</h3>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="reg-p4-name">Player 4 Name <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p4-name" class="form-input" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="reg-p4-uid">Player 4 UID <span style="color: var(--gold);">*</span></label>
+                  <input type="text" id="reg-p4-uid" class="form-input" placeholder="In-game UID" required>
+                </div>
+              </div>
+
+              <!-- Level 40 Checkbox -->
+              <div class="form-group" style="margin-top: 1rem;">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="reg-level40-check" required>
+                  <span class="checkbox-custom-box"></span>
+                  <span class="checkbox-text">I confirm that all players have an in-game level of at least 40. <span style="color: var(--gold);">*</span></span>
+                </label>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                <button type="button" class="btn btn-primary" id="btn-to-step-2" style="padding: 0.8rem 2rem;">
+                  Next: Contact Info →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Contact Information -->
+            <div class="form-step-panel" id="step-2">
+              <h2 style="font-size: 1.3rem; margin-bottom: 1.25rem; color: var(--gold-light); display: flex; align-items: center; gap: 0.5rem;">
+                📱 Contact Information
+              </h2>
+              <p style="font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 1.5rem;">
+                Match room details and scheduling notifications will be sent directly to the Team Leader.
+              </p>
+
+              <!-- Mobile Number -->
+              <div class="form-group">
+                <label class="form-label" for="reg-mobile">Mobile Number <span style="color: var(--gold);">*</span></label>
+                <input type="tel" id="reg-mobile" class="form-input" placeholder="10-digit Mobile Number" maxlength="10" inputmode="numeric" required>
+              </div>
+
+              <!-- WhatsApp Number -->
+              <div class="form-group">
+                <label class="form-label" for="reg-whatsapp">WhatsApp Number <span style="color: var(--gold);">*</span></label>
+                <input type="tel" id="reg-whatsapp" class="form-input" placeholder="10-digit WhatsApp Number" maxlength="10" inputmode="numeric" required>
+              </div>
+
+              <!-- Telegram Username (Optional) -->
+              <div class="form-group">
+                <label class="form-label" for="reg-telegram">Telegram Username <span style="color: var(--secondary-text);">(Optional)</span></label>
+                <input type="text" id="reg-telegram" class="form-input" placeholder="e.g. @teamleader_tg">
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                <button type="button" class="btn" id="btn-back-to-step-1" style="background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid rgba(255,255,255,0.15);">
+                  ← Back
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-to-step-3" style="padding: 0.8rem 2rem;">
+                  Next: Rules & Declaration →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Rules & Declaration -->
+            <div class="form-step-panel" id="step-3">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                <h2 style="font-size: 1.3rem; color: var(--gold-light); display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                  📜 Rules & Declaration
+                </h2>
+                
+                <!-- Language Selector -->
+                <div class="lang-selector-group">
+                  <span style="font-size: 0.82rem; color: var(--secondary-text); font-weight: 600;">Language:</span>
+                  <button type="button" class="lang-btn active" data-lang="en">English</button>
+                  <button type="button" class="lang-btn" data-lang="hinglish">Hinglish</button>
+                  <button type="button" class="lang-btn" data-lang="hi">Hindi</button>
+                </div>
+              </div>
+
+              <!-- Rules Container -->
+              <div class="rules-container" id="rules-list-wrapper">
+                <!-- Dynamically Populated Rules -->
+              </div>
+
+              <!-- Rules Required Checkbox -->
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="reg-rules-check" required>
+                  <span class="checkbox-custom-box"></span>
+                  <span class="checkbox-text" style="font-weight: 600; color: var(--gold-light);">
+                    I have read and agree to all tournament rules. <span style="color: var(--gold);">*</span>
+                  </span>
+                </label>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                <button type="button" class="btn" id="btn-back-to-step-2" style="background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid rgba(255,255,255,0.15);">
+                  ← Back
+                </button>
+                <button type="submit" class="btn btn-primary" id="btn-submit-registration" style="padding: 0.85rem 2.5rem; box-shadow: var(--shadow-neon-gold);">
+                  Submit Registration 🚀
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Success View -->
+            <div class="form-step-panel" id="step-4" style="text-align: center; padding: 2rem 1rem;">
+              <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.15); border: 2px solid var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem auto; box-shadow: 0 0 30px var(--success-glow);">
+                ✓
+              </div>
+
+              <h2 style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--text); margin-bottom: 1rem;">
+                Registration Submitted Successfully
+              </h2>
+
+              <p style="font-size: 1.05rem; color: var(--text); margin-bottom: 0.5rem; font-weight: 500;">
+                Your registration has been received.
+              </p>
+
+              <p style="font-size: 0.95rem; color: var(--secondary-text); margin-bottom: 0.5rem;">
+                Our team will review your registration and contact you soon.
+              </p>
+
+              <p style="font-size: 0.95rem; color: var(--gold-light); margin-bottom: 2.5rem; font-weight: 600;">
+                Tournament updates will be shared with the Team Leader.
+              </p>
+
+              <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <a href="./leagues.html" class="btn" style="background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem 1.8rem;">
+                  Back to Leagues
+                </a>
+                <a href="./index.html" class="btn btn-primary" style="padding: 0.8rem 2.2rem;">
+                  Home
+                </a>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="text-align: center;">
+      <p>© 2026 RushUp Esports. All rights reserved. | <a href="./index.html" style="color: var(--gold-light);">Home</a> | <a href="./privacy.html" style="color: var(--gold-light);">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

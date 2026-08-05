@@ -36,6 +36,9 @@ const googleVerificationFiles = rootFiles.filter(f => f.startsWith('google') && 
 // Files & Subdirectories to include in production build
 const filesToCopy = [
   'index.html',
+  'leagues.html',
+  'tournament-details.html',
+  'register.html',
   'contact.html',
   'privacy.html',
   'terms.html',
@@ -97,7 +100,7 @@ try {
 console.log('\n🔍 Running Automated Path & Asset Link Audit...');
 
 let hasErrors = false;
-const htmlFiles = ['index.html', 'contact.html', 'privacy.html', 'terms.html', '404.html'];
+const htmlFiles = ['index.html', 'leagues.html', 'tournament-details.html', 'register.html', 'contact.html', 'privacy.html', 'terms.html', '404.html'];
 
 htmlFiles.forEach(file => {
   const filePath = path.join(rootDir, file);
@@ -114,10 +117,10 @@ htmlFiles.forEach(file => {
   }
 
   // Check that all linked local CSS, JS, images, icons exist
-  const relMatches = content.matchAll(/(href|src)=["'](\.\/)?(css|js|images|icons|manifest\.json|contact\.html|privacy\.html|terms\.html|404\.html|index\.html)[^"']*["']/gi);
+  const relMatches = content.matchAll(/(href|src)=["'](\.\/)?(css|js|images|icons|manifest\.json|leagues\.html|tournament-details\.html|register\.html|contact\.html|privacy\.html|terms\.html|404\.html|index\.html)[^"']*["']/gi);
   for (const match of relMatches) {
     const rawPath = match[0].split('=')[1].replace(/["']/g, '');
-    const cleanPath = rawPath.replace(/^\.\//, '');
+    const cleanPath = rawPath.replace(/^\.\//, '').split('#')[0].split('?')[0];
     const targetPath = path.join(rootDir, cleanPath);
     if (!fs.existsSync(targetPath)) {
       console.error(`  ❌ FAIL: Broken reference in ${file}: ${rawPath} -> ${targetPath} does not exist!`);

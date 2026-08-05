@@ -1184,3 +1184,434 @@ section {
   pointer-events: auto;
 }
 
+/* ==========================================================================
+   TOURNAMENT REGISTRATION SYSTEM STYLES
+   ========================================================================== */
+
+/* Leagues Grid & Cards (DISPLAY ONLY: Logo, Name, Reg Open Badge, Fee, Few Slots Badge) */
+.leagues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.league-card-item {
+  display: block;
+  text-decoration: none;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.league-card-item:hover {
+  transform: translateY(-6px);
+  background: var(--card-bg-hover);
+  border-color: var(--glass-border-gold);
+  box-shadow: var(--shadow-neon-gold);
+}
+
+.league-card-logo-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: rgba(108, 43, 255, 0.15);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.league-card-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.league-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.league-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.league-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.badge-open {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.badge-slots {
+  background: rgba(255, 193, 7, 0.18);
+  color: var(--gold-light);
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.league-card-fee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fee-label {
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+  font-weight: 500;
+}
+
+.fee-amount {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+/* Tournament Details Page */
+.stats-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: var(--text);
+}
+
+.prize-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.prize-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: rgba(9, 9, 11, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+
+.prize-gold {
+  border-color: rgba(255, 193, 7, 0.4);
+  background: linear-gradient(90deg, rgba(255, 193, 7, 0.12) 0%, rgba(9, 9, 11, 0.7) 100%);
+}
+
+.prize-silver {
+  border-color: rgba(226, 232, 240, 0.3);
+  background: linear-gradient(90deg, rgba(226, 232, 240, 0.08) 0%, rgba(9, 9, 11, 0.7) 100%);
+}
+
+.prize-bronze {
+  border-color: rgba(217, 119, 6, 0.3);
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.08) 0%, rgba(9, 9, 11, 0.7) 100%);
+}
+
+.prize-mvp {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.12) 0%, rgba(9, 9, 11, 0.7) 100%);
+}
+
+.prize-cert {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0%, rgba(9, 9, 11, 0.7) 100%);
+}
+
+.prize-rank {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.prize-amount {
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+/* Sticky Register Bar */
+.sticky-register-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--glass-border-gold);
+  padding: 0.85rem 1.5rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sticky-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Stepper Indicator */
+.stepper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background: rgba(17, 24, 39, 0.6);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+}
+
+.step-item.active {
+  opacity: 1;
+}
+
+.step-item.completed .step-circle {
+  background: var(--success);
+  color: #000;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--gold);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.step-item.active .step-circle {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.step-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 1rem;
+}
+
+/* Multi-Step Panels & Form Grids */
+.form-step-panel {
+  display: none;
+  animation: fadeInStep 0.35s ease forwards;
+}
+
+.form-step-panel.active {
+  display: block;
+}
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Custom Checkbox */
+.custom-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom-box {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--gold);
+  background: rgba(9, 9, 11, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+}
+
+.custom-checkbox-label input[type="checkbox"]:checked ~ .checkbox-custom-box {
+  background: var(--gold);
+}
+
+.custom-checkbox-label input[type="checkbox"]:checked ~ .checkbox-custom-box::after {
+  content: '✓';
+  color: #000;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.checkbox-text {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Language Selector Pills */
+.lang-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(9, 9, 11, 0.8);
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--secondary-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn.active {
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Rules List Container */
+.rules-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+  margin-top: 1rem;
+}
+
+.rules-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rules-container::-webkit-scrollbar-thumb {
+  background: var(--primary-purple);
+  border-radius: 4px;
+}
+
+.rule-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(9, 9, 11, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rule-number {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(108, 43, 255, 0.25);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-top: 1px;
+}
+
+.rule-text {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+

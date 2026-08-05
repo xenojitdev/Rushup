@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leagues & Tournaments | RushUp Esports</title>
+  <meta name="description" content="Explore official Free Fire esports leagues and tournaments hosted by RushUp Esports. Join RushUp Battle Series 2026 and win big cash prizes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://xenojitdev.github.io/Rushup/leagues.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RushUp Esports">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://xenojitdev.github.io/Rushup/leagues.html">
+  <meta property="og:title" content="Leagues & Tournaments | RushUp Esports">
+  <meta property="og:description" content="Compete in official Free Fire tournaments on RushUp Esports. High prize pools, instant payouts, and zero latency.">
+  <meta property="og:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://xenojitdev.github.io/Rushup/leagues.html">
+  <meta name="twitter:title" content="Leagues & Tournaments | RushUp Esports">
+  <meta name="twitter:description" content="Compete in official Free Fire tournaments on RushUp Esports. High prize pools, instant payouts.">
+  <meta name="twitter:image" content="https://xenojitdev.github.io/Rushup/icons/rushup_icon.png">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/png" href="./icons/rushup_icon.png">
+  <link rel="apple-touch-icon" href="./icons/rushup_icon.png">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://xenojitdev.github.io/Rushup/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Leagues",
+        "item": "https://xenojitdev.github.io/Rushup/leagues.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="scroll-progress"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <button class="mobile-menu-close" aria-label="Close Mobile Menu">&times;</button>
+    <ul class="mobile-nav-links">
+      <li><a href="./index.html#home" class="mobile-nav-link">Home</a></li>
+      <li><a href="./leagues.html" class="mobile-nav-link active">Leagues</a></li>
+      <li><a href="./index.html#features" class="mobile-nav-link">Features</a></li>
+      <li><a href="./index.html#screenshots" class="mobile-nav-link">App Preview</a></li>
+      <li><a href="./index.html#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="./index.html#faq" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="./index.html" class="logo" aria-label="RushUp Esports Home">
+        <img src="./icons/rushup_logo.png" alt="RushUp Esports Logo" class="nav-logo-img" width="180" height="48">
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="./index.html#home" class="nav-link">Home</a></li>
+          <li><a href="./leagues.html" class="nav-link active">Leagues</a></li>
+          <li><a href="./index.html#features" class="nav-link">Features</a></li>
+          <li><a href="./index.html#screenshots" class="nav-link">App Preview</a></li>
+          <li><a href="./index.html#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="./index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section style="padding-top: 8.5rem; padding-bottom: 5rem;">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Official Esports</div>
+          <h1 class="section-title">Esports <span class="gradient-text-gold">Leagues</span></h1>
+          <p class="section-subtitle">Select an active tournament to view details, prize breakdown, and register your team.</p>
+        </div>
+
+        <div class="leagues-grid">
+          <!-- Tournament Card: Display ONLY Logo, Name, Registration Open Badge, Entry Fee, Few Slots Left Badge -->
+          <a href="./tournament-details.html" class="league-card-item">
+            <div class="league-card-logo-wrapper">
+              <img src="./icons/rushup_icon.png" alt="RushUp Battle Series Logo" class="league-card-logo">
+            </div>
+            
+            <h2 class="league-card-title">RushUp Battle Series (RBS) 2026</h2>
+            
+            <div class="league-card-badges">
+              <span class="league-badge badge-open">● Registration Open</span>
+              <span class="league-badge badge-slots">🔥 Few Slots Left</span>
+            </div>
+
+            <div class="league-card-fee">
+              <span class="fee-label">Entry Fee</span>
+              <span class="fee-amount">₹99</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="text-align: center;">
+      <p>© 2026 RushUp Esports. All rights reserved. | <a href="./index.html" style="color: var(--gold-light);">Home</a> | <a href="./privacy.html" style="color: var(--gold-light);">Privacy Policy</a> | <a href="./terms.html" style="color: var(--gold-light);">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

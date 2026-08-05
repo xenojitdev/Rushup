@@ -51,6 +51,9 @@ server.listen(PORT, async () => {
   const urlsToTest = [
     '/Rushup/',
     '/Rushup/index.html',
+    '/Rushup/leagues.html',
+    '/Rushup/tournament-details.html',
+    '/Rushup/register.html',
     '/Rushup/contact.html',
     '/Rushup/privacy.html',
     '/Rushup/terms.html',
