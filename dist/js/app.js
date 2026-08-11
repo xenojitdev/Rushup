@@ -612,6 +612,20 @@ function initTournamentRegistration() {
   const form = document.getElementById('tournament-registration-form');
   if (!form) return;
 
+  // RBS 2026 Registration Closing Deadline: 31 August 2026 23:59:59 IST
+  const REGISTRATION_DEADLINE = new Date('2026-08-31T23:59:59+05:30');
+  const isRegistrationClosed = new Date() > REGISTRATION_DEADLINE;
+
+  if (isRegistrationClosed) {
+    const submitBtnEl = document.getElementById('btn-submit-registration');
+    if (submitBtnEl) {
+      submitBtnEl.disabled = true;
+      submitBtnEl.textContent = '🔒 Registration Closed';
+      submitBtnEl.style.background = '#6B7280';
+      submitBtnEl.style.cursor = 'not-allowed';
+    }
+  }
+
   const btnStep1To2 = document.getElementById('btn-to-step-2');
   const btnStep2To1 = document.getElementById('btn-back-to-step-1');
   const btnStep2To3 = document.getElementById('btn-to-step-3');
@@ -773,8 +787,13 @@ function initTournamentRegistration() {
   }
 
   // Final Form Submission
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
+
+    if (new Date() > REGISTRATION_DEADLINE) {
+      showToast('⚠️ Registration for RBS 2026 closed on 31 August 2026.', 'error');
+      return;
+    }
 
     const rulesChecked = document.getElementById('reg-rules-check')?.checked;
     if (!rulesChecked) {
