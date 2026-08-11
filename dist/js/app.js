@@ -504,7 +504,6 @@ function initContactForm() {
         body: JSON.stringify({
           name,
           mobile,
-          email: `${mobile}@rushupesports.com`,
           contactPreference,
           telegramUsername,
           subject,
@@ -806,41 +805,106 @@ function initTournamentRegistration() {
       telegramUsername = '@' + telegramUsername;
     }
 
+    // Generate Unique Registration ID (e.g. RBS26-4891)
+    const randomDigits = Math.floor(1000 + Math.random() * 9000);
+    const registrationId = `RBS26-${randomDigits}`;
+
+    const submittedDate = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      dateStyle: 'medium',
+      timeStyle: 'medium',
+    });
+
+    const regDetailsMessage = [
+      `🆔 Registration ID: ${registrationId}`,
+      `🏆 Tournament: RushUp Battle Series (RBS) 2026`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `Team Name: ${teamName}`,
+      `Short Name: ${shortName}`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `Leader: ${leaderName}`,
+      `UID: ${leaderUID}`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `Player 2: ${player2Name}`,
+      `UID: ${player2UID}`,
+      `Player 3: ${player3Name}`,
+      `UID: ${player3UID}`,
+      `Player 4: ${player4Name}`,
+      `UID: ${player4UID}`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `Mobile: ${mobile}`,
+      `WhatsApp: ${whatsapp}`,
+      `Telegram: ${telegramUsername || 'N/A'}`,
+      `━━━━━━━━━━━━━━━━━━`,
+      `Eligibility Confirmed: Yes (All players Level 40+)`,
+      `Rules Accepted: Yes`,
+      `Submitted: ${submittedDate}`
+    ].join('\n');
+
+    const payload = {
+      registrationId,
+      tournament: 'RushUp Battle Series (RBS) 2026',
+      teamName,
+      shortName,
+      leaderName,
+      leaderUID,
+      player2Name,
+      player2UID,
+      player3Name,
+      player3UID,
+      player4Name,
+      player4UID,
+      mobile,
+      whatsapp,
+      telegramUsername,
+      level40Confirmed: true,
+      rulesAccepted: true,
+      submittedAt: submittedDate,
+
+      // Worker API Schema Compatibility
+      name: `${teamName} (Leader: ${leaderName})`,
+      contactPreference: telegramUsername ? 'Telegram' : 'WhatsApp',
+      subject: `🏆 Tournament Registration: ${registrationId} - ${teamName}`,
+      message: regDetailsMessage
+    };
+
     submitBtn.disabled = true;
     submitBtn.innerHTML = '⏳ Submitting Registration...';
 
     try {
-      const response = await fetch(REGISTER_WORKER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          tournament: 'RushUp Battle Series (RBS) 2026',
-          teamName,
-          shortName,
-          leaderName,
-          leaderUID,
-          player2Name,
-          player2UID,
-          player3Name,
-          player3UID,
-          player4Name,
-          player4UID,
-          mobile,
-          whatsapp,
-          telegramUsername,
-          level40Confirmed: true,
-          rulesAccepted: true,
-        }),
-      });
+      let response;
+      try {
+        response = await fetch(REGISTER_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (response.status === 405 || response.status === 404) {
+          response = await fetch(CONTACT_WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        }
+      } catch (fetchErr) {
+        response = await fetch(CONTACT_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      }
 
       const result = await response.json();
 
       if (response.ok && result.success) {
-        showToast('✓ Registration Submitted Successfully!', 'success');
+        const displayIdEl = document.getElementById('reg-id-display');
+        if (displayIdEl) displayIdEl.textContent = registrationId;
+
+        showToast(`✓ Registration Submitted Successfully! ID: ${registrationId}`, 'success');
         form.reset();
         goToStep(4);
       } else {
-        throw new Error(result.error || 'Failed to submit tournament registration.');
+        throw new Error(result.error || 'Failed to deliver registration to Telegram support desk.');
       }
     } catch (err) {
       console.error('Tournament Registration Submission Error:', err);

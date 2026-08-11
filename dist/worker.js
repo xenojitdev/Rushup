@@ -59,6 +59,8 @@ export default {
           );
         }
 
+        const registrationId = body.registrationId || `RBS26-${Math.floor(1000 + Math.random() * 9000)}`;
+
         const {
           tournament = 'RushUp Battle Series (RBS) 2026',
           teamName,
@@ -84,6 +86,9 @@ export default {
 
         const telegramMessage = [
           '🏆 New Tournament Registration',
+          '',
+          '🆔 Registration ID:',
+          registrationId,
           '',
           'Tournament:',
           tournament.trim(),
@@ -174,6 +179,7 @@ export default {
         return new Response(
           JSON.stringify({
             success: true,
+            registrationId,
             message: 'Your tournament registration has been submitted successfully.',
           }),
           {

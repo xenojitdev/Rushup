@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found | RushUp Esports</title>
   <meta name="robots" content="noindex, follow">
+
+  <!-- Clean URL Fallback & Automatic Redirection for GitHub Pages -->
+  <script>
+    (function() {
+      try {
+        var rawPath = window.location.pathname.toLowerCase().replace(/\/$/, '');
+        var cleanName = rawPath.split('/').pop();
+        if (cleanName === 'register' || cleanName === 'form' || cleanName === 'registration') {
+          window.location.replace('./register.html' + window.location.search + window.location.hash);
+        } else if (cleanName === 'contact' || cleanName === 'support') {
+          window.location.replace('./contact.html' + window.location.search + window.location.hash);
+        } else if (cleanName === 'leagues' || cleanName === 'tournaments') {
+          window.location.replace('./leagues.html' + window.location.search + window.location.hash);
+        } else if (cleanName === 'tournament-details' || cleanName === 'details') {
+          window.location.replace('./tournament-details.html' + window.location.search + window.location.hash);
+        } else if (cleanName === 'privacy') {
+          window.location.replace('./privacy.html' + window.location.search + window.location.hash);
+        } else if (cleanName === 'terms') {
+          window.location.replace('./terms.html' + window.location.search + window.location.hash);
+        }
+      } catch (e) {
+        console.error('Redirection error:', e);
+      }
+    })();
+  </script>
+
   <link rel="icon" type="image/png" href="./icons/rushup_icon.png">
   <link rel="apple-touch-icon" href="./icons/rushup_icon.png">
   
@@ -30,7 +56,10 @@
       <a href="./index.html" class="logo" aria-label="RushUp Esports Home">
         <img src="./icons/rushup_logo.png" alt="RushUp Esports Logo" class="nav-logo-img" width="180" height="48">
       </a>
-      <a href="./index.html" class="btn btn-secondary">← Back to Home</a>
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <a href="./register.html" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.9rem;">Register Form ⚡</a>
+        <a href="./index.html" class="btn btn-secondary" style="padding: 0.55rem 1.2rem; font-size: 0.9rem;">← Home</a>
+      </div>
     </div>
   </header>
 
@@ -44,13 +73,21 @@
           </div>
           <h1 style="font-size: 1.85rem; margin: 1rem 0 0.65rem 0;">Match Room Not Found!</h1>
           <p style="color: var(--secondary-text); margin-bottom: 2rem; font-size: 1rem;">
-            Oops! The page you are looking for has been moved, deleted, or does not exist.
+            Looking for the tournament registration form or support contact? Use the quick links below to jump straight in.
           </p>
 
-          <a href="./index.html" class="btn btn-primary">
-            <svg class="btn-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            Return to Home Page
-          </a>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="./register.html" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              Tournament Registration Form
+            </a>
+            <a href="./contact.html" class="btn btn-secondary">
+              Contact Support
+            </a>
+            <a href="./index.html" class="btn btn-secondary">
+              Return Home
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -59,7 +96,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container" style="text-align: center;">
-      <p>© 2026 RushUp Esports. All rights reserved. | <a href="./index.html" style="color: var(--gold-light);">Home</a></p>
+      <p>© 2026 RushUp Esports. All rights reserved. | <a href="./index.html" style="color: var(--gold-light);">Home</a> | <a href="./register.html" style="color: var(--gold-light);">Register Form</a> | <a href="./contact.html" style="color: var(--gold-light);">Contact</a></p>
     </div>
   </footer>
 
