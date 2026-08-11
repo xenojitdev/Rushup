@@ -504,6 +504,7 @@ function initContactForm() {
         body: JSON.stringify({
           name,
           mobile,
+          email: `${mobile}@rushup.internal`,
           contactPreference,
           telegramUsername,
           subject,
@@ -584,7 +585,6 @@ const TOURNAMENT_RULES = {
     "Any use of cheats, hacks, glitches or exploits will result in immediate disqualification.",
     "Match schedule will be informed in advance. Joining on time is the team's responsibility.",
     "RushUp does not charge any fee other than the official tournament entry fee.",
-    "All players must belong to Madhya Pradesh.",
     "Emulators are strictly prohibited. Only Android devices are allowed.",
     "Every player must be at least 16 years old. Players between 16–18 require parent/guardian consent."
   ],
@@ -594,7 +594,6 @@ const TOURNAMENT_RULES = {
     "Kisi bhi tarah ke cheats, hacks, glitches ya exploits ke use par team ko turant disqualify kar diya jayega.",
     "Match schedule pehle se share kar diya jayega. Sahi time par room join karna team ki zimmedari hai.",
     "RushUp official tournament entry fee ke ilawa koi extra fee nahi leta.",
-    "Sabhi players ka Madhya Pradesh se hona compulsory hai.",
     "Emulators strictly prohibited hain. Sirf Android devices allowed hain.",
     "Har player ki umar kam se kam 16 saal honi chahiye. 16-18 saal ke players ke liye parent consent zaroori hai."
   ],
@@ -604,7 +603,6 @@ const TOURNAMENT_RULES = {
     "किसी भी प्रकार के चीट, हैक, ग्लिच या हैकिंग टूल के उपयोग पर टीम को तुरंत अयोग्य घोषित कर दिया जाएगा।",
     "मैच का समय और शेड्यूल पहले से बता दिया जाएगा। सही समय पर रूम में शामिल होना टीम की जिम्मेदारी है।",
     "रशअप आधिकारिक टूर्नामेंट प्रवेश शुल्क के अलावा कोई अन्य शुल्क नहीं लेता है।",
-    "सभी खिलाड़ियों का मध्य प्रदेश राज्य से होना अनिवार्य है।",
     "एम्यूलेटर का उपयोग सख्त वर्जित है। केवल एंड्रॉइड डिवाइस की अनुमति है।",
     "प्रत्येक खिलाड़ी की आयु कम से कम 16 वर्ष होनी चाहिए। 16–18 वर्ष के खिलाड़ियों के लिए अभिभावक की अनुमति आवश्यक है।"
   ]
@@ -863,6 +861,7 @@ function initTournamentRegistration() {
 
       // Worker API Schema Compatibility
       name: `${teamName} (Leader: ${leaderName})`,
+      email: `${mobile}@rushup.internal`,
       contactPreference: telegramUsername ? 'Telegram' : 'WhatsApp',
       subject: `🏆 Tournament Registration: ${registrationId} - ${teamName}`,
       message: regDetailsMessage
@@ -904,11 +903,19 @@ function initTournamentRegistration() {
         form.reset();
         goToStep(4);
       } else {
-        throw new Error(result.error || 'Failed to deliver registration to Telegram support desk.');
+        let rawErr = result.error || 'Failed to deliver registration to Telegram support desk.';
+        if (rawErr.toLowerCase().includes('email')) {
+          rawErr = 'Failed to submit registration. Please try again.';
+        }
+        throw new Error(rawErr);
       }
     } catch (err) {
       console.error('Tournament Registration Submission Error:', err);
-      showToast(`⚠️ ${err.message || 'Submission error. Please try again.'}`, 'error');
+      let errMsg = err.message || 'Submission error. Please try again.';
+      if (errMsg.toLowerCase().includes('email')) {
+        errMsg = 'Submission error. Please try again.';
+      }
+      showToast(`⚠️ ${errMsg}`, 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnContent;

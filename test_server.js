@@ -68,6 +68,7 @@ server.listen(PORT, async () => {
     '/Rushup/icons/rushup_icon.png',
     '/Rushup/images/screenshot (1).jpg',
     '/Rushup/images/screenshot (6).jpg',
+    '/Rushup/images/RBS2026.jpg',
     '/Rushup/google02dd7d263e157df0.html'
   ];
 
