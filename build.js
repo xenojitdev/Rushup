@@ -47,6 +47,7 @@ const filesToCopy = [
   'sitemap.xml',
   'robots.txt',
   'worker.js',
+  '.nojekyll',
   ...googleVerificationFiles
 ];
 
