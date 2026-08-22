@@ -48,6 +48,7 @@ const filesToCopy = [
   'robots.txt',
   'worker.js',
   '.nojekyll',
+  'CNAME',
   ...googleVerificationFiles
 ];
 
